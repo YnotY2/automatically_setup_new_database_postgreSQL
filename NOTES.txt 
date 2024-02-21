@@ -1,0 +1,20 @@
+Okay so the code "create_postgresql_new_user.py" works as intended and creates the new user
+and corresponding password correctly. Please note the following about the code tho;
+
++The code is not 100% automatic as we still need to enter the postgreSQL password. Which is fine.
+*Only run this code once when setting up the project_review_tool, or for any project for that matter.
+Running this will create the user, database, modify "pg_config" postgreSQl file.
+
+
+
+Okay so now the code "create_database_and_confirm_creation.py" also fully works.
+This code is actually fully automatic :D
+
+Now we will have to modift the pga_hba.conf config file for PostgreSQL authentication, we will
+add a entry of the new user to be able to modify the coresponding database :))
+
+
+
+
+
+-After running this complete project/program code 1X! We should be able to connect to our newly created db just fine.

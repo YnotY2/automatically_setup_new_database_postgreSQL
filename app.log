@@ -1,1 +1,240 @@
 
+2024-02-21 18:34:56,158 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 18:34:56,158 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 18:34:56,158 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 18:34:56,158 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 18:34:56,158 - ERROR - Error: [Errno 13] Permission denied: './services_sh/start_posgresql.sh'
+2024-02-21 18:34:56,158 - INFO - [96mCalling[0m[93m create_new_postgresql_user.py[0m [96mservice -function[0m
+2024-02-21 18:34:56,158 - INFO - [94mAttempting to create a new database user with corresponding password:[0m
+2024-02-21 18:34:56,158 - INFO - [96mUser:            project_google_reviews_usr[0m
+2024-02-21 18:34:56,158 - INFO - [96mPassword:        Oo51knSSV3OSwfuy8WFu[0m
+2024-02-21 18:35:01,757 - ERROR - Error occurred: Command 'sudo -u postgres psql -c "CREATE USER project_google_reviews_usr WITH PASSWORD 'Oo51knSSV3OSwfuy8WFu';"' returned non-zero exit status 2.
+2024-02-21 18:35:01,757 - INFO - [94mAttempting to confirm creation of a new database user:[0m
+2024-02-21 18:35:01,757 - INFO - [96mUser:            project_google_reviews_usr[0m
+2024-02-21 18:36:14,010 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 18:36:14,010 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 18:36:14,010 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 18:36:14,010 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 18:36:14,010 - ERROR - Error: [Errno 13] Permission denied: './services_sh/start_posgresql.sh'
+2024-02-21 18:36:14,010 - INFO - [96mCalling[0m[93m create_new_postgresql_user.py[0m [96mservice -function[0m
+2024-02-21 18:36:14,010 - INFO - [94mAttempting to create a new database user with corresponding password:[0m
+2024-02-21 18:36:14,010 - INFO - [96mUser:            project_google_reviews_usr[0m
+2024-02-21 18:36:14,010 - INFO - [96mPassword:        Oo51knSSV3OSwfuy8WFu[0m
+2024-02-21 18:36:19,169 - ERROR - Error occurred: Command 'sudo -u postgres psql -c "CREATE USER project_google_reviews_usr WITH PASSWORD 'Oo51knSSV3OSwfuy8WFu';"' returned non-zero exit status 130.
+2024-02-21 18:36:19,169 - INFO - [94mAttempting to confirm creation of a new database user:[0m
+2024-02-21 18:36:19,169 - INFO - [96mUser:            project_google_reviews_usr[0m
+2024-02-21 18:38:44,487 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 18:38:44,487 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 18:38:44,488 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 18:38:44,488 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 18:38:50,776 - INFO - [92mPostgreSQL service started successfully.[0m
+2024-02-21 18:38:50,776 - INFO - [96mCalling[0m[93m create_new_postgresql_user.py[0m [96mservice -function[0m
+2024-02-21 18:38:50,776 - INFO - [94mAttempting to create a new database user with corresponding password:[0m
+2024-02-21 18:38:50,776 - INFO - [96mUser:            project_google_reviews_usr[0m
+2024-02-21 18:38:50,776 - INFO - [96mPassword:        Oo51knSSV3OSwfuy8WFu[0m
+2024-02-21 18:39:20,216 - ERROR - Error occurred: Command 'sudo -u postgres psql -c "CREATE USER project_google_reviews_usr WITH PASSWORD 'Oo51knSSV3OSwfuy8WFu';"' returned non-zero exit status 2.
+2024-02-21 18:39:20,216 - INFO - [94mAttempting to confirm creation of a new database user:[0m
+2024-02-21 18:39:20,216 - INFO - [96mUser:            project_google_reviews_usr[0m
+2024-02-21 18:39:34,015 - ERROR - Error occurred: Command 'psql -U project_google_reviews_usr -W' returned non-zero exit status 2.
+2024-02-21 18:39:34,015 - INFO - [92mThe error should indicate 'peer auth failed' because we haven't yet added an entry to the 'pg_hba.conf' file for the user database and the md5 authentication method.[0m
+2024-02-21 18:39:34,015 - INFO - [96mCalling[0m[93m stop_postgresql.py[0m [96mservice -function[0m
+2024-02-21 18:39:34,015 - INFO - [96mExecuting stop_postgresql.sh script[0m
+2024-02-21 18:39:34,060 - INFO - [92mPostgreSQL service stopped successfully.[0m
+2024-02-21 18:39:34,060 - INFO - [96mCalling[0m[93m check_status_postgresql_service.py[0m [96mservice -function[0m
+2024-02-21 18:39:34,060 - INFO - [96mExecuting check_status_postgresql_service.sh script[0m
+2024-02-21 18:39:34,060 - INFO - [92mStatus check on postgreSQL service completed successfully.[0m
+2024-02-21 18:41:51,358 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 18:41:51,359 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 18:41:51,359 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 18:41:51,359 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 18:41:57,629 - INFO - [92mPostgreSQL service started successfully.[0m
+2024-02-21 18:41:57,629 - INFO - [96mCalling[0m[93m create_new_postgresql_user.py[0m [96mservice -function[0m
+2024-02-21 18:41:57,629 - INFO - [94mAttempting to create a new database user with corresponding password:[0m
+2024-02-21 18:41:57,629 - INFO - [96mUser:            project_google_reviews_usr[0m
+2024-02-21 18:41:57,629 - INFO - [96mPassword:        Oo51knSSV3OSwfuy8WFu[0m
+2024-02-21 18:42:02,734 - ERROR - Error occurred: Command 'sudo -u postgres psql -c "CREATE USER project_google_reviews_usr WITH PASSWORD 'Oo51knSSV3OSwfuy8WFu';"' returned non-zero exit status 130.
+2024-02-21 18:42:02,734 - INFO - [94mAttempting to confirm creation of a new database user:[0m
+2024-02-21 18:42:02,746 - INFO - [96mUser:            project_google_reviews_usr[0m
+2024-02-21 18:42:42,326 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 18:42:42,326 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 18:42:42,327 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 18:42:42,327 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 18:42:42,336 - INFO - [92mPostgreSQL service started successfully.[0m
+2024-02-21 18:42:42,336 - INFO - [96mCalling[0m[93m create_new_postgresql_user.py[0m [96mservice -function[0m
+2024-02-21 18:42:42,336 - INFO - [94mAttempting to create a new database user with corresponding password:[0m
+2024-02-21 18:42:42,336 - INFO - [96mUser:            project_google_reviews_usr[0m
+2024-02-21 18:42:42,336 - INFO - [96mPassword:        Oo51knSSV3OSwfuy8WFu[0m
+2024-02-21 18:42:52,088 - INFO - [92mUser project_google_reviews_usr created successfully.[0m
+2024-02-21 18:42:52,088 - INFO - [94mAttempting to confirm creation of a new database user:[0m
+2024-02-21 18:42:52,088 - INFO - [96mUser:            project_google_reviews_usr[0m
+2024-02-21 18:42:57,504 - ERROR - Error occurred: Command 'psql -U project_google_reviews_usr -W' returned non-zero exit status 2.
+2024-02-21 18:42:57,505 - INFO - [92mThe error should indicate 'peer auth failed' because we haven't yet added an entry to the 'pg_hba.conf' file for the user database and the md5 authentication method.[0m
+2024-02-21 18:42:57,508 - INFO - [96mCalling[0m[93m stop_postgresql.py[0m [96mservice -function[0m
+2024-02-21 18:42:57,508 - INFO - [96mExecuting stop_postgresql.sh script[0m
+2024-02-21 18:42:57,552 - INFO - [92mPostgreSQL service stopped successfully.[0m
+2024-02-21 18:42:57,552 - INFO - [96mCalling[0m[93m check_status_postgresql_service.py[0m [96mservice -function[0m
+2024-02-21 18:42:57,552 - INFO - [96mExecuting check_status_postgresql_service.sh script[0m
+2024-02-21 18:42:57,552 - INFO - [92mStatus check on postgreSQL service completed successfully.[0m
+2024-02-21 19:14:08,812 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 19:14:08,812 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 19:14:08,812 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 19:14:08,812 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 19:14:55,727 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 19:14:55,727 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 19:14:55,727 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 19:14:55,727 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 19:15:08,880 - INFO - [92mPostgreSQL service started successfully.[0m
+2024-02-21 19:15:08,880 - INFO - [96mCalling[0m[93m create_new_postgresql_user.py[0m [96mservice -function[0m
+2024-02-21 19:15:08,880 - INFO - [94mAttempting to create a new database user with corresponding password:[0m
+2024-02-21 19:15:08,880 - INFO - [96mUser:            [95mproject_google_reviews_usr[0m
+2024-02-21 19:15:08,880 - INFO - [96mPassword:        [95mOo51knSSV3OSwfuy8WFu[0m
+2024-02-21 19:15:15,659 - ERROR - [91mError occurred: Command 'sudo -u postgres psql -c "CREATE USER project_google_reviews_usr WITH PASSWORD 'Oo51knSSV3OSwfuy8WFu';"' returned non-zero exit status 1.[0m
+2024-02-21 19:15:15,660 - INFO - [94mAttempting to confirm creation of a new database user:[0m
+2024-02-21 19:15:15,660 - INFO - [96mUser:            [95mproject_google_reviews_usr[0m
+2024-02-21 19:15:22,776 - ERROR - [91mError occurred: Command 'psql -U project_google_reviews_usr -W' returned non-zero exit status 2.[0m
+2024-02-21 19:15:22,776 - INFO - [92mThe error should indicate: 'peer auth failed' because we haven't yet added an entry to the 'pg_hba.conf' file for the user database and the md5 authentication method.[0m
+2024-02-21 19:15:22,776 - INFO - [96mCalling[0m[93m stop_postgresql.py[0m [96mservice -function[0m
+2024-02-21 19:15:22,776 - INFO - [96mExecuting stop_postgresql.sh script[0m
+2024-02-21 19:15:22,831 - INFO - [92mPostgreSQL service stopped successfully.[0m
+2024-02-21 19:15:22,831 - INFO - [96mCalling[0m[93m check_status_postgresql_service.py[0m [96mservice -function[0m
+2024-02-21 19:15:22,831 - INFO - [96mExecuting check_status_postgresql_service.sh script[0m
+2024-02-21 19:15:22,831 - INFO - [92mStatus check on postgreSQL service completed successfully.[0m
+2024-02-21 19:17:07,029 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 19:17:07,029 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 19:17:07,029 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 19:17:07,029 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 19:17:13,300 - INFO - [92mPostgreSQL service started successfully.[0m
+2024-02-21 19:17:13,300 - INFO - [96mCalling[0m[93m create_new_postgresql_user.py[0m [96mservice -function[0m
+2024-02-21 19:17:13,300 - INFO - [94mAttempting to create a new database user with corresponding password:[0m
+2024-02-21 19:17:13,300 - INFO - [96mUser:            [95mproject_google_reviews_usr[0m
+2024-02-21 19:17:13,300 - INFO - [96mPassword:        [95mOo51knSSV3OSwfuy8WFu[0m
+2024-02-21 19:17:16,420 - ERROR - [91mError occurred: Command 'sudo -u postgres psql -c "CREATE USER project_google_reviews_usr WITH PASSWORD 'Oo51knSSV3OSwfuy8WFu';"' returned non-zero exit status 1.[0m
+2024-02-21 19:17:16,420 - INFO - [94mAttempting to confirm creation of a new database user:[0m
+2024-02-21 19:17:16,420 - INFO - [96mUser:            [95mproject_google_reviews_usr[0m
+2024-02-21 19:17:27,460 - ERROR - [91mError occurred: Command 'psql -U project_google_reviews_usr -W' returned non-zero exit status 2.[0m
+2024-02-21 19:17:27,460 - INFO - [92mThe error should indicate: 'peer auth failed' because we haven't yet added an entry to the 'pg_hba.conf' file for the user database and the md5 authentication method.[0m
+2024-02-21 19:17:27,460 - INFO - [96mCalling[0m[93m create_database_and_confirm_creation.py[0m [96mservice -function[0m
+2024-02-21 19:17:27,468 - INFO - [96mAttempting to connect to the following database:[0m
+2024-02-21 19:17:27,468 - INFO - [94mdatabase:[0m[95m        'postgres'       [0m
+2024-02-21 19:17:27,468 - INFO - [94muser:[0m[95m            'postgres'         [0m
+2024-02-21 19:17:27,468 - INFO - [94mpassword:[0m[95m        'postgres'         [0m
+2024-02-21 19:17:27,468 - INFO - [94mhost:[0m[95m            'localhost'         [0m
+2024-02-21 19:17:27,468 - INFO - [94mport:[0m[95m            '5432'        [0m
+2024-02-21 19:17:27,468 - INFO - [92mSuccessfully connected to the database.[0m
+2024-02-21 19:17:27,468 - INFO - [96mAttempting to create database:[0m
+2024-02-21 19:17:27,468 - INFO - [92mDatabase:[0m[95m      'project_google_reviews'[0m
+2024-02-21 19:17:27,468 - ERROR - [91mAn error occurred: CREATE DATABASE cannot run inside a transaction block
+[0m
+2024-02-21 19:17:27,468 - INFO - [96mAttempting to confirm creation of database:[0m
+2024-02-21 19:17:27,469 - INFO - [92mDatabase:[0m[95m      'project_google_reviews'[0m
+2024-02-21 19:17:27,472 - ERROR - [91mAn error occurred: current transaction is aborted, commands ignored until end of transaction block
+[0m
+2024-02-21 19:17:27,472 - INFO - [96mCalling[0m[93m stop_postgresql.py[0m [96mservice -function[0m
+2024-02-21 19:17:27,473 - INFO - [96mExecuting stop_postgresql.sh script[0m
+2024-02-21 19:17:27,512 - INFO - [92mPostgreSQL service stopped successfully.[0m
+2024-02-21 19:17:27,512 - INFO - [96mCalling[0m[93m check_status_postgresql_service.py[0m [96mservice -function[0m
+2024-02-21 19:17:27,512 - INFO - [96mExecuting check_status_postgresql_service.sh script[0m
+2024-02-21 19:17:27,534 - INFO - [92mStatus check on postgreSQL service completed successfully.[0m
+2024-02-21 19:23:37,268 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 19:23:37,268 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 19:23:37,268 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 19:23:37,268 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 19:23:43,528 - INFO - [92mPostgreSQL service started successfully.[0m
+2024-02-21 19:23:43,528 - INFO - [96mCalling[0m[93m create_new_postgresql_user.py[0m [96mservice -function[0m
+2024-02-21 19:23:43,529 - INFO - [94mAttempting to create a new database user with corresponding password:[0m
+2024-02-21 19:23:43,529 - INFO - [96mUser:            [95mproject_google_reviews_usr[0m
+2024-02-21 19:23:43,529 - INFO - [96mPassword:        [95mOo51knSSV3OSwfuy8WFu[0m
+2024-02-21 19:23:46,836 - ERROR - [91mError occurred: Command 'sudo -u postgres psql -c "CREATE USER project_google_reviews_usr WITH PASSWORD 'Oo51knSSV3OSwfuy8WFu';"' returned non-zero exit status 1.[0m
+2024-02-21 19:23:46,837 - INFO - [94mAttempting to confirm creation of a new database user:[0m
+2024-02-21 19:23:46,837 - INFO - [96mUser:            [95mproject_google_reviews_usr[0m
+2024-02-21 19:23:50,573 - ERROR - [91mError occurred: Command 'psql -U project_google_reviews_usr -W' returned non-zero exit status 2.[0m
+2024-02-21 19:23:50,573 - INFO - [92mThe error should indicate: 'peer auth failed' because we haven't yet added an entry to the 'pg_hba.conf' file for the user database and the md5 authentication method.[0m
+2024-02-21 19:23:50,573 - INFO - [96mCalling[0m[93m create_database_and_confirm_creation.py[0m [96mservice -function[0m
+2024-02-21 19:23:50,580 - INFO - [96mAttempting to connect to the following database:[0m
+2024-02-21 19:23:50,580 - INFO - [94mdatabase:[0m[95m        'postgres'       [0m
+2024-02-21 19:23:50,580 - INFO - [94muser:[0m[95m            'postgres'         [0m
+2024-02-21 19:23:50,580 - INFO - [94mpassword:[0m[95m        'postgres'         [0m
+2024-02-21 19:23:50,581 - INFO - [94mhost:[0m[95m            'localhost'         [0m
+2024-02-21 19:23:50,581 - INFO - [94mport:[0m[95m            '5432'        [0m
+2024-02-21 19:23:50,581 - INFO - [92mSuccessfully connected to the database.[0m
+2024-02-21 19:23:50,581 - INFO - [96mAttempting to create database:[0m
+2024-02-21 19:23:50,581 - INFO - [92mDatabase:[0m[95m      'project_google_reviews'[0m
+2024-02-21 19:23:50,668 - INFO - [96mAttempting to confirm creation of database:[0m
+2024-02-21 19:23:50,668 - INFO - [92mDatabase:[0m[95m      'project_google_reviews'[0m
+2024-02-21 19:23:50,675 - INFO - [92mDatabase:[95m     'project_google_reviews'[0m [92m created successfully.[0m
+2024-02-21 19:23:50,675 - INFO - [96mCalling[0m[93m stop_postgresql.py[0m [96mservice -function[0m
+2024-02-21 19:23:50,675 - INFO - [96mExecuting stop_postgresql.sh script[0m
+2024-02-21 19:23:50,723 - INFO - [92mPostgreSQL service stopped successfully.[0m
+2024-02-21 19:23:50,723 - INFO - [96mCalling[0m[93m check_status_postgresql_service.py[0m [96mservice -function[0m
+2024-02-21 19:23:50,723 - INFO - [96mExecuting check_status_postgresql_service.sh script[0m
+2024-02-21 19:23:50,744 - INFO - [92mStatus check on postgreSQL service completed successfully.[0m
+2024-02-21 19:30:22,557 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 19:30:22,557 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 19:30:22,557 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 19:30:22,557 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 19:30:22,566 - INFO - [92mPostgreSQL service started successfully.[0m
+2024-02-21 19:30:22,566 - INFO - [96mCalling[0m[93m create_new_postgresql_user.py[0m [96mservice -function[0m
+2024-02-21 19:30:22,566 - INFO - [94mAttempting to create a new database user with corresponding password:[0m
+2024-02-21 19:30:22,566 - INFO - [96mUser:            [95mproject_google_reviews_usr[0m
+2024-02-21 19:30:22,566 - INFO - [96mPassword:        [95mOo51knSSV3OSwfuy8WFu[0m
+2024-02-21 19:30:29,190 - ERROR - [91mError occurred: Command 'sudo -u postgres psql -c "CREATE USER project_google_reviews_usr WITH PASSWORD 'Oo51knSSV3OSwfuy8WFu';"' returned non-zero exit status 1.[0m
+2024-02-21 19:30:29,190 - INFO - [94mAttempting to confirm creation of a new database user:[0m
+2024-02-21 19:30:29,190 - INFO - [96mUser:            [95mproject_google_reviews_usr[0m
+2024-02-21 19:30:37,819 - ERROR - [91mError occurred: Command 'psql -U project_google_reviews_usr -W' returned non-zero exit status 2.[0m
+2024-02-21 19:30:37,819 - INFO - [92mThe error should indicate: 'peer auth failed' because we haven't yet added an entry to the 'pg_hba.conf' file for the user database and the md5 authentication method.[0m
+2024-02-21 19:30:37,819 - INFO - [96mCalling[0m[93m create_database_and_confirm_creation.py[0m [96mservice -function[0m
+2024-02-21 19:30:37,827 - INFO - [96mAttempting to connect to the following database:[0m
+2024-02-21 19:30:37,827 - INFO - [94mdatabase:[0m[95m        'postgres'       [0m
+2024-02-21 19:30:37,827 - INFO - [94muser:[0m[95m            'postgres'         [0m
+2024-02-21 19:30:37,827 - INFO - [94mpassword:[0m[95m        'postgres'         [0m
+2024-02-21 19:30:37,827 - INFO - [94mhost:[0m[95m            'localhost'         [0m
+2024-02-21 19:30:37,827 - INFO - [94mport:[0m[95m            '5432'        [0m
+2024-02-21 19:30:37,827 - INFO - [92mSuccessfully connected to the database.[0m
+2024-02-21 19:30:37,827 - INFO - [96mAttempting to create database:[0m
+2024-02-21 19:30:37,827 - INFO - [92mDatabase:[0m[95m      'project_google_reviews'[0m
+2024-02-21 19:30:37,867 - ERROR - [91mAn error occurred: database "project_google_reviews" already exists
+[0m
+2024-02-21 19:30:37,867 - INFO - [96mAttempting to confirm creation of database:[0m
+2024-02-21 19:30:37,867 - INFO - [92mDatabase:[0m[95m      'project_google_reviews'[0m
+2024-02-21 19:30:37,868 - INFO - [92mDatabase:[95m     'project_google_reviews'[0m [92m created successfully.[0m
+2024-02-21 19:30:37,868 - INFO - [96mCalling[0m[93m stop_postgresql.py[0m [96mservice -function[0m
+2024-02-21 19:30:37,868 - INFO - [96mExecuting stop_postgresql.sh script[0m
+2024-02-21 19:30:37,895 - INFO - [92mPostgreSQL service stopped successfully.[0m
+2024-02-21 19:30:37,895 - INFO - [96mCalling[0m[93m check_status_postgresql_service.py[0m [96mservice -function[0m
+2024-02-21 19:30:37,895 - INFO - [96mExecuting check_status_postgresql_service.sh script[0m
+2024-02-21 19:30:37,915 - INFO - [92mStatus check on postgreSQL service completed successfully.[0m
+2024-02-21 19:31:43,756 - INFO - HIIIIIIIIIIIIIIIIIIIIIII
+2024-02-21 19:31:43,756 - INFO - [96mStarting[0m[93m main.py[0m [96m python3 script ...[0m
+2024-02-21 19:31:43,756 - INFO - [96mCalling[0m[93m start_posgresql.py[0m [96mservice -function[0m
+2024-02-21 19:31:43,756 - INFO - [96mExecuting start_postgresql.sh script[0m
+2024-02-21 19:31:50,029 - INFO - [92mPostgreSQL service started successfully.[0m
+2024-02-21 19:31:50,029 - INFO - [96mCalling[0m[93m create_new_postgresql_user.py[0m [96mservice -function[0m
+2024-02-21 19:31:50,029 - INFO - [94mAttempting to create a new database user with corresponding password:[0m
+2024-02-21 19:31:50,029 - INFO - [96mUser:            [95mproject_google_reviews_usr[0m
+2024-02-21 19:31:50,029 - INFO - [96mPassword:        [95mOo51knSSV3OSwfuy8WFu[0m
+2024-02-21 19:31:55,124 - ERROR - [91mError occurred: Command 'sudo -u postgres psql -c "CREATE USER project_google_reviews_usr WITH PASSWORD 'Oo51knSSV3OSwfuy8WFu';"' returned non-zero exit status 1.[0m
+2024-02-21 19:31:55,125 - INFO - [94mAttempting to confirm creation of a new database user:[0m
+2024-02-21 19:31:55,125 - INFO - [96mUser:            [95mproject_google_reviews_usr[0m
+2024-02-21 19:32:01,237 - ERROR - [91mError occurred: Command 'psql -U project_google_reviews_usr -W' returned non-zero exit status 2.[0m
+2024-02-21 19:32:01,237 - INFO - [92mThe error should indicate: 'peer auth failed' because we haven't yet added an entry to the 'pg_hba.conf' file for the user database and the md5 authentication method.[0m
+2024-02-21 19:32:01,237 - INFO - [96mCalling[0m[93m create_database_and_confirm_creation.py[0m [96mservice -function[0m
+2024-02-21 19:32:01,245 - INFO - [96mAttempting to connect to the following database:[0m
+2024-02-21 19:32:01,245 - INFO - [94mdatabase:[0m[95m        'postgres'       [0m
+2024-02-21 19:32:01,245 - INFO - [94muser:[0m[95m            'postgres'         [0m
+2024-02-21 19:32:01,245 - INFO - [94mpassword:[0m[95m        'postgres'         [0m
+2024-02-21 19:32:01,245 - INFO - [94mhost:[0m[95m            'localhost'         [0m
+2024-02-21 19:32:01,245 - INFO - [94mport:[0m[95m            '5432'        [0m
+2024-02-21 19:32:01,245 - INFO - [92mSuccessfully connected to the database.[0m
+2024-02-21 19:32:01,245 - INFO - [96mAttempting to create database:[0m
+2024-02-21 19:32:01,245 - INFO - [92mDatabase:[0m[95m      'project_google_reviews'[0m
+2024-02-21 19:32:01,245 - ERROR - [91mAn error occurred: database "project_google_reviews" already exists
+[0m
+2024-02-21 19:32:01,245 - INFO - [96mAttempting to confirm creation of database:[0m
+2024-02-21 19:32:01,245 - INFO - [92mDatabase:[0m[95m      'project_google_reviews'[0m
+2024-02-21 19:32:01,246 - INFO - [92mDatabase:[95m     'project_google_reviews'[0m [92m created successfully.[0m
+2024-02-21 19:32:01,246 - INFO - [96mCalling[0m[93m stop_postgresql.py[0m [96mservice -function[0m
+2024-02-21 19:32:01,246 - INFO - [96mExecuting stop_postgresql.sh script[0m
+2024-02-21 19:32:01,284 - INFO - [92mPostgreSQL service stopped successfully.[0m
+2024-02-21 19:32:01,284 - INFO - [96mCalling[0m[93m check_status_postgresql_service.py[0m [96mservice -function[0m
+2024-02-21 19:32:01,284 - INFO - [96mExecuting check_status_postgresql_service.sh script[0m
+2024-02-21 19:32:01,303 - INFO - [92mStatus check on postgreSQL service completed successfully.[0m

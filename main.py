@@ -6,6 +6,8 @@ from services_python.stop_postgresql import stop_postgresql
 from services_python.check_status_postgresql_service import check_status_postgresql_service
 from services_python.connect_db import connect_db
 from services_python.quit_db_connection import quit_db_connection
+from services_python.create_postgresql_new_user import create_new_postgresql_user
+from services_python.create_database_and_confirm_creation import create_database_and_confirm_creation
 
 # Setup logger with service name
 service_name = "main"
@@ -21,11 +23,17 @@ def main():
         logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} start_posgresql.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
         start_postgresql()
 
-        logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} connect_db.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
-        cursor = connect_db()
+        logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} create_new_postgresql_user.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
+        create_new_postgresql_user()
 
-        logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} quit_db_connection.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
-        quit_db_connection(cursor)
+        logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} create_database_and_confirm_creation.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
+        create_database_and_confirm_creation()
+
+       # logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} connect_db.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
+       # cursor = connect_db()
+
+       # logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} quit_db_connection.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
+       # quit_db_connection(cursor)
 
         logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} stop_postgresql.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
         stop_postgresql()
