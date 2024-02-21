@@ -13,8 +13,36 @@ This code is actually fully automatic :D
 Now we will have to modift the pga_hba.conf config file for PostgreSQL authentication, we will
 add a entry of the new user to be able to modify the coresponding database :))
 
+1, stop postgresQL service
+2, add entry to pg_hba.conf file
+3, restart the postgreSQl service
+
+** For the code "edit_pg_hba_postgresql_config_file.py"
+we must run it in root to be able to edit the "pg_hba.conf" postgresql file
+
+Okay I have successfully added the line to the authentication file!
+
+Next we will create the database schema it's self for the created database :)
 
 
+
+
+
+
+Next we will verify the creation of new user and also creation of permissions of user to the corresponding
+new database and schema  ;D
+
+After that we can finaly proceed to creation the database schema !!!
 
 
 -After running this complete project/program code 1X! We should be able to connect to our newly created db just fine.
+
+
+*****MUST CREATE A SH SCRIPT THAT ENSURES ALL FILES HAVE CORRECT PERMISSIONS, RUN THIS SCRIPT IN ROOT*****
++++++FOLLOWING FILES;
+-All python3 services within services_python3/
+-All Sh services within services_sh/
+-PostgreSQL pg_hba.conf file /etc/postgresql/16/main/pg_hba.conf
+
+WELP NEVERMIND, SIMPLY RUN THE CODE AS SUPER USER!! AKA ROOT.
+(still give privledges to sh and python3 files just in case lol)

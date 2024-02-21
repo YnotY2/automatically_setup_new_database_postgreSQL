@@ -29,5 +29,8 @@ def check_status_postgresql_service():
         logger.error(f"Error: {e}")
         logger.error(f"{Colors.RED}Error: Executing check_status_postgresql_service.sh {Colors.END}")
 
+    # Print a blank line to the terminal
+    print("")
+
 if __name__ == "__main__":
     check_status_postgresql_service()

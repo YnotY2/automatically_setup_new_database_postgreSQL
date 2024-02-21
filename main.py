@@ -3,11 +3,15 @@ from utils.logger import setup_logger
 
 from services_python.start_postgresql import start_postgresql
 from services_python.stop_postgresql import stop_postgresql
+from services_python.restart_postgresql import restart_postgresql
 from services_python.check_status_postgresql_service import check_status_postgresql_service
 from services_python.connect_db import connect_db
 from services_python.quit_db_connection import quit_db_connection
 from services_python.create_postgresql_new_user import create_new_postgresql_user
 from services_python.create_database_and_confirm_creation import create_database_and_confirm_creation
+from services_python.edit_pg_hba_postgresql_config_file import edit_pg_hba_postgresql_config_file
+from services_python.create_schema_new_database import create_schema_new_database
+
 
 # Setup logger with service name
 service_name = "main"
@@ -40,6 +44,19 @@ def main():
 
         logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} check_status_postgresql_service.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
         check_status_postgresql_service()
+
+        logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} edit_pg_hba_postgresql_config_file.py.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
+        edit_pg_hba_postgresql_config_file()
+
+        logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} restart_postgresql.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
+        restart_postgresql()
+
+        logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} check_status_postgresql_service.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
+        check_status_postgresql_service()
+
+        logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} create_schema_new_database.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
+        create_schema_new_database()
+
 
 
 
