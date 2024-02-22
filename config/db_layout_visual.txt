@@ -1,0 +1,31 @@
+
+# project_google_horeca_reviews                                                            (NAME DATABASE)
+# │
+# ├── horca_parameters_client                                                              (NAME SCHEMA)
+# │   └── client_data
+# │       ├── client_name (TXT)                                                                      (NAME TABLE)
+# │       ├── client_id (SERIAL)                                                           (NAME ID)
+# │       ├── client_data (JSONB)                                                          (NAME DATA)
+# │       └── created_at (TIMESTAMP)                                                       (NAME TIME-CREATED)
+# │
+# ├── google_account_info
+# │   └── account_data
+# │       ├── account_id (SERIAL)
+# │       ├── account_data (JSONB)
+# │       └── created_at (TIMESTAMP)
+# │
+# ├── standard_strings_review
+# │   └── standard_string
+# │       ├── string_id (SERIAL)
+# │       ├── string_data (JSONB)
+# │       └── created_at (TIMESTAMP)
+# │
+# │
+# │
+# └── created_horeca_reviews
+#     └── reviews_data
+#         ├── client_name (TXT)
+#         ├── review_id (SERIAL)
+#         ├── review_data (JSONB)
+#         └── created_at (TIMESTAMP)
+#         └── review_count (INTEGER)

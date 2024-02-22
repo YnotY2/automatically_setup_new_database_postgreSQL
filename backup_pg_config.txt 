@@ -28,6 +28,7 @@
 #local   all       postgres             trust
 local   all       postgres             md5
 local	all	  yahoo_mail_sender    md5
+local   project_google_reviews        project_google_reviews_usr             md5
 
 
 # The first field is the connection type:

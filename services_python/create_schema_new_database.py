@@ -33,6 +33,9 @@ def create_schema_new_database():
         # Verify schema creation
         logger.info(f"{Colors.BLUE}Verifying schema creation...{Colors.END}")
 
+        # Set a flag to keep track if all schema's have been created successfully
+        all_schemas_created = True
+
         for schema_name in ["horca_parameters_client", "google_account_info", "standard_strings_review",
                             "created_horeca_reviews"]:
             verify_command = f"psql -U postgres -d {postgresql_db_new_name} -c '\\dn {schema_name}'"
@@ -41,8 +44,25 @@ def create_schema_new_database():
             # Check if the schema name is present in the output
             if schema_name in verify_result.stdout:
                 logger.info(f"{Colors.GREEN}Schema:      {Colors.END}{Colors.MAGENTA}{schema_name}{Colors.END}{Colors.GREEN} verified to be created successfully.{Colors.END}")
+
+                # Read and log the contents of db_layout_visual.txt if schema created successfully.
+                try:
+                    with open("db_layout_visual.txt", "r") as file:
+                        db_layout_visual_contents = file.read()
+
+                    logger.info(f"{Colors.BLUE}Layout of created schema::{Colors.END}")
+                    logger.info(f"{Colors.YELLOW}db_layout_visual_contents{Colors.END}")
+
+                except FileNotFoundError:
+                    logger.error("db_layout_visual.txt not found.")
+
+                except Exception as e:
+                    logger.error(f"An error occurred while reading db_layout_visual.txt: {e}")
+                print("")
+
             else:
                 logger.error(f"{Colors.RED}Error: Schema {schema_name} not found.{Colors.END}")
+                all_schemas_created = False
 
     except subprocess.CalledProcessError as e:
         logger.error(
@@ -52,6 +72,8 @@ def create_schema_new_database():
         logger.error(f"{Colors.RED}An error occurred: {e}{Colors.END}")
 
     print("")
+
+
 
 
 if __name__ == "__main__":

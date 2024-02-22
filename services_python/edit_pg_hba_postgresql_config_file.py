@@ -29,12 +29,40 @@ def edit_pg_hba_postgresql_config_file():
     logger.info(f"{Colors.MAGENTA}{context_formated_string}{Colors.END}")
     print("")
 
-    try:
-        # Open the pg_hba.conf file in append mode
-        with open(pg_hba_conf_path, "a") as file:
-            file.write(new_line)
+    # Define the pattern to match, within the "pg_hba.conf"-file.
+    pattern_words = ["local", "all", "postgres", "md5"]
 
-        logger.info(f"{Colors.GREEN}Line added successfully to pg_hba.conf.{Colors.END}")
+    try:
+        # Read the content of pg_hba.conf
+        with open(pg_hba_conf_path, "r") as file:
+            lines = file.readlines()
+
+        # Find the index of the line containing the pattern
+        index = None
+        for i, line in enumerate(lines):
+            line_words = line.split()
+            if all(word in line_words for word in pattern_words):
+                index = i
+                break
+
+        if index is None:
+            logger.error(f"{Colors.RED}: Pattern not found in pg_hba.conf.{Colors.END}")
+            return
+
+        # Insert the new line after the line containing the pattern
+        lines.insert(index + 1, new_line)
+
+        try:
+            # Write the updated content back to pg_hba.conf
+            with open(pg_hba_conf_path, "w") as file:
+                file.writelines(lines)
+
+            logger.info(f"{Colors.GREEN}Line added successfully to pg_hba.conf.{Colors.END}")
+
+        except Exception as e:
+            logger.error(f"{Colors.RED}An error occurred while editing pg_hba.conf: {e}{Colors.END}")
+
+
 
     except FileNotFoundError:
         logger.error("pg_hba.conf file not found.")

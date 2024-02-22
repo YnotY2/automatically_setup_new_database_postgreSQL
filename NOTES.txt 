@@ -21,6 +21,7 @@ add a entry of the new user to be able to modify the coresponding database :))
 we must run it in root to be able to edit the "pg_hba.conf" postgresql file
 
 Okay I have successfully added the line to the authentication file!
+- It is added right under the default "local   all       postgres             md5" file :D
 
 Next we will create the database schema it's self for the created database :)
 
