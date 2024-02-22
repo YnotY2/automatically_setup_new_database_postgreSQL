@@ -10,8 +10,8 @@ from services_python.quit_db_connection import quit_db_connection
 from services_python.create_postgresql_new_user import create_new_postgresql_user
 from services_python.create_database_and_confirm_creation import create_database_and_confirm_creation
 from services_python.edit_pg_hba_postgresql_config_file import edit_pg_hba_postgresql_config_file
-from services_python.create_schema_new_database import create_schema_new_database
 
+from services_python.create_schema_new_database import create_schema_new_database
 
 # Setup logger with service name
 service_name = "main"

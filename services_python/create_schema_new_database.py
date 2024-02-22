@@ -1,7 +1,9 @@
 import subprocess
+import os
 from utils.logger import setup_logger
 from utils.colors import Colors
 from config.settings import postgresql_db_new_name
+
 
 # Setup logger with service name
 service_name = "create_schema_new_database"
@@ -19,18 +21,30 @@ def create_schema_new_database():
         logger.info(f"{Colors.CYAN}Database:            {Colors.MAGENTA}{postgresql_db_new_name}{Colors.END}")
         print("")
 
+        # Set PGPASSWORD environment variable
+        os.environ['PGPASSWORD'] = "postgres"
+
         # Execute the command
         try:
-            result = subprocess.run(command, shell=True, check=True, capture_output=True, text=True)
+            result = subprocess.run(command, shell=True, check=True, capture_output=True, text=True, env=os.environ)
+
             # Log the output
             logger.info(f"{Colors.BLUE}Output of creating schema for database {Colors.END} {Colors.MAGENTA}{postgresql_db_new_name}:{Colors.END}")
             logger.info(result.stdout)
             print("")
 
             logger.info(f"{Colors.GREEN}Schema for database: {Colors.END}{Colors.MAGENTA}{postgresql_db_new_name}{Colors.END}{Colors.GREEN} created successfully.{Colors.END}")
+            print("")
 
         except Exception as e:
             logger.error(f"{Colors.RED}Error: Creating schema db; {e}{Colors.END}")
+
+
+
+        # Unset PGPASSWORD environment variable
+        del os.environ['PGPASSWORD']
+        # Set PGPASSWORD environment variable
+        os.environ['PGPASSWORD'] = "Oo51knSSV3OSwfuy8WFu"
 
 
         # Verify schema creation
@@ -41,8 +55,8 @@ def create_schema_new_database():
 
         for schema_name in ["horca_parameters_client", "google_account_info", "standard_strings_review",
                             "created_horeca_reviews"]:
-            verify_command = f"psql -U postgres -d {postgresql_db_new_name} -c '\\dn {schema_name}'"
-            verify_result = subprocess.run(verify_command, shell=True, check=True, capture_output=True, text=True)
+            verify_command = f"psql -U project_google_reviews_usr -d {postgresql_db_new_name} -c '\\dn {schema_name}'"
+            verify_result = subprocess.run(verify_command, shell=True, check=True, capture_output=True, text=True, env=os.environ)
 
             # Check if the schema name is present in the output
             if schema_name in verify_result.stdout:
@@ -52,7 +66,7 @@ def create_schema_new_database():
                 logger.error(f"{Colors.RED}Error: Schema {schema_name} not found.{Colors.END}")
                 all_schemas_created = False
 
-
+        print("")
         # Check if all schemas are created successfully
         if all_schemas_created:
             logger.info(
@@ -60,7 +74,7 @@ def create_schema_new_database():
 
             # Read and log the contents of db_layout_visual.txt
             try:
-                with open("db_layout_visual.txt", "r") as file:
+                with open("./config/db_layout_visual.txt", "r") as file:
                     db_layout_visual_contents = file.read()
 
                 logger.info(f"{Colors.BLUE}Layout of created schemas::{Colors.END}")
@@ -79,6 +93,8 @@ def create_schema_new_database():
     except Exception as e:
         logger.error(f"{Colors.RED}An error occurred: {e}{Colors.END}")
 
+    # Unset PGPASSWORD environment variable
+    del os.environ['PGPASSWORD']
     print("")
 
 

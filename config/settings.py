@@ -17,3 +17,4 @@ postgresql_port = os.getenv("postgresql_port", "5432")      # Default port// Cha
 postgresql_host = os.getenv("postgresql_host", "localhost")      # Locally hosted db// Change if wanted
 
 # Other credentials
+# psql -U project_google_reviews_usr -d project_google_reviews

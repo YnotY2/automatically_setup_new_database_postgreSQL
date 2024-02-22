@@ -21,7 +21,7 @@ def edit_pg_hba_postgresql_config_file():
     print("")
 
     formatted_string = "# TYPE  DATABASE  USER     ADDRESS     METHOD"
-    context_formatted_string = f"local\t{postgresql_db_new_name}\t{postgreSQL_db_new_usr}\tmd5"
+    context_formatted_string = f"local   {postgresql_db_new_name}   {postgreSQL_db_new_usr}   tmd5"
 
     logger.info(f"{Colors.BLUE}Attempting to add following line:{Colors.END}")
     logger.info(f"{Colors.CYAN}Database:            {Colors.MAGENTA}{postgresql_db_new_name}{Colors.END}")
