@@ -46,3 +46,9 @@ CREATE TABLE IF NOT EXISTS created_horeca_reviews.reviews_data (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     review_count INTEGER
 );
+
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA horca_parameters_client TO project_google_reviews_usr;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA google_account_info TO project_google_reviews_usr;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA standard_strings_review TO project_google_reviews_usr;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA created_horeca_reviews TO project_google_reviews_usr;

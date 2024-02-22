@@ -24,7 +24,7 @@ Okay I have successfully added the line to the authentication file!
 - It is added right under the default "local   all       postgres             md5" file :D
 
 Next we will create the database schema it's self for the created database :)
-
+and confirm creation of the schema.
 
 
 

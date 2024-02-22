@@ -21,12 +21,12 @@ def edit_pg_hba_postgresql_config_file():
     print("")
 
     formatted_string = "# TYPE  DATABASE  USER     ADDRESS     METHOD"
-    context_formated_string = f"local	  {postgresql_db_new_name}	 {postgreSQL_db_new_usr}     md5"
+    context_formatted_string = f"local\t{postgresql_db_new_name}\t{postgreSQL_db_new_usr}\tmd5"
 
     logger.info(f"{Colors.BLUE}Attempting to add following line:{Colors.END}")
     logger.info(f"{Colors.CYAN}Database:            {Colors.MAGENTA}{postgresql_db_new_name}{Colors.END}")
     logger.info(f"{Colors.MAGENTA}{formatted_string}{Colors.END}")
-    logger.info(f"{Colors.MAGENTA}{context_formated_string}{Colors.END}")
+    logger.info(f"{Colors.MAGENTA}{context_formatted_string}{Colors.END}")
     print("")
 
     # Define the pattern to match, within the "pg_hba.conf"-file.
@@ -58,16 +58,22 @@ def edit_pg_hba_postgresql_config_file():
                 file.writelines(lines)
 
             logger.info(f"{Colors.GREEN}Line added successfully to pg_hba.conf.{Colors.END}")
+            print("")
 
         except Exception as e:
             logger.error(f"{Colors.RED}An error occurred while editing pg_hba.conf: {e}{Colors.END}")
+            print("")
 
 
 
     except FileNotFoundError:
         logger.error("pg_hba.conf file not found.")
+        print("")
+
     except Exception as e:
         logger.error(f"An error occurred while editing pg_hba.conf: {e}")
+        print("")
+
 
 if __name__ == "__main__":
     edit_pg_hba_postgresql_config_file()
