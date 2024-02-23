@@ -12,7 +12,7 @@ from services_python.create_database_and_confirm_creation import create_database
 from services_python.edit_pg_hba_postgresql_config_file import edit_pg_hba_postgresql_config_file
 
 from services_python.create_schema_new_database import create_schema_new_database
-from services_python.verify_table_schema_is_present_and_correct import verify_table_schema_is_present_and_correct
+from services_python.verify_permissions_usr_db_granted import verify_permissions_usr_db_granted
 
 # Setup logger with service name
 service_name = "main"
@@ -57,6 +57,11 @@ def main():
 
         logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} create_schema_new_database.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
         create_schema_new_database()
+
+        logger.info(f"{Colors.CYAN}Calling{Colors.END}{Colors.YELLOW} verify_permissions_usr_db_granted.py{Colors.END} {Colors.CYAN}service -function{Colors.END}")
+        verify_permissions_usr_db_granted()
+
+
 
 
 

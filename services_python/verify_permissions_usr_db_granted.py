@@ -1,57 +1,73 @@
 import psycopg2
 from utils.logger import setup_logger
 from utils.colors import Colors
+from config.settings import postgresql_db_new_name, postgreSQL_db_new_usr, postgresql_db_new_passwd
 
 # Setup logger with service name
 service_name = "verify_permissions_usr_db_granted.py"
 logger = setup_logger(service_name)
 
-
-def verify_permissions_usr_db_granted(database_name, user):
-
-    connection = psycopg2.connect(
-        database="postgres",
-        user="postgres",
-        host="localhost",
-        password="postgres",
-        port="5432")
-
-    logger.info(f"{Colors.CYAN}Attempting to connect to the following database:{Colors.END}")
-    logger.info(f"{Colors.BLUE}database:{Colors.END}{Colors.MAGENTA}        'postgres'       {Colors.END}")
-    logger.info(f"{Colors.BLUE}user:{Colors.END}{Colors.MAGENTA}            'postgres'         {Colors.END}")
-    logger.info(f"{Colors.BLUE}password:{Colors.END}{Colors.MAGENTA}        'postgres'         {Colors.END}")
-    logger.info(f"{Colors.BLUE}host:{Colors.END}{Colors.MAGENTA}            'localhost'         {Colors.END}")
-    logger.info(f"{Colors.BLUE}port:{Colors.END}{Colors.MAGENTA}            '5432'        {Colors.END}")
-    print("")
-
+def verify_permissions_usr_db_granted():
     try:
-        connection.autocommit = True  # Disable autocommit
+        # Establish connection to the PostgreSQL database
+        connection = psycopg2.connect(
+            dbname=postgresql_db_new_name,
+            user=postgreSQL_db_new_usr,
+            password=postgresql_db_new_passwd,
+            host="localhost",
+            port="5432"
+        )
+
+        logger.info(f"{Colors.CYAN}Attempting to connect to the following database:{Colors.END}")
+        logger.info(f"{Colors.BLUE}database:{Colors.END}{Colors.MAGENTA}        '{postgresql_db_new_name}'       {Colors.END}")
+        logger.info(f"{Colors.BLUE}user:{Colors.END}{Colors.MAGENTA}            '{postgreSQL_db_new_usr}'         {Colors.END}")
+        logger.info(f"{Colors.BLUE}password:{Colors.END}{Colors.MAGENTA}        '{postgresql_db_new_passwd}'         {Colors.END}")
+        logger.info(f"{Colors.BLUE}host:{Colors.END}{Colors.MAGENTA}            'localhost'         {Colors.END}")
+        logger.info(f"{Colors.BLUE}port:{Colors.END}{Colors.MAGENTA}            '5432'        {Colors.END}")
+        print("")
+
+        # Create a cursor object
         cursor = connection.cursor()
         logger.info(f"{Colors.GREEN}Successfully connected to the database.{Colors.END}")
+        print("")
+
+
+        # Execute the SQL query to fetch permissions
+        cursor.execute("""
+            SELECT DISTINCT privilege_type
+            FROM information_schema.table_privileges
+            WHERE grantee = %s;
+        """, (postgreSQL_db_new_usr,))
+
+        # Fetch all rows
+        rows = cursor.fetchall()
+
+        # Extract unique privilege types
+        unique_privileges = set(row[0] for row in rows)
+
+        # Define expected privilege types
+        expected_privileges = {"INSERT", "SELECT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES", "TRIGGER"}
+
+        # Check if all expected privileges are present in the response
+        missing_privileges = expected_privileges - unique_privileges
+
+        logger.info(f"{Colors.BLUE}Attempting to check if all expected/needed privileges are granted to:{Colors.END}")
+        logger.info(f"{Colors.CYAN}User:                {Colors.MAGENTA}{postgreSQL_db_new_usr}{Colors.END}")
+        logger.info(f"{Colors.CYAN}On Database:         {Colors.MAGENTA}{postgresql_db_new_name}{Colors.END}")
+
+        # Print the result
+        if not missing_privileges:
+            logger.info(f"{Colors.GREEN}All expected privileges are present in the response.{Colors.END}")
+            logger.info(f"{Colors.CYAN}{expected_privileges}{Colors.END}")
+        else:
+            logger.error(f"{Colors.RED}Missing privileges: {', '.join(missing_privileges)}{Colors.END}")
+
+        # Close the cursor and connection
+        cursor.close()
+        connection.close()
 
     except Exception as e:
-        logger.info(f"{Colors.RED}Error: {e}.{Colors.END}")
+        logger.error(f"{Colors.RED}Error: {e}.{Colors.END}")
 
-    # Execute the SQL query to fetch permissions
-    cursor.execute("""
-        SELECT grantee, table_schema, table_name, privilege_type
-        FROM information_schema.table_privileges
-        WHERE grantee = %s;
-    """, (user,))
-
-    # Fetch all rows
-    rows = cur.fetchall()
-
-    # Print the output
-    logger.info(f"{Colors.CYAN}   grantee   |      table_schema      |   table_name   | privilege_type {Colors.END}")
-    logger.info(f"{Colors.CYAN}--------------+------------------------+----------------+----------------{Colors.END}")
-    for row in rows:
-        logger.info(f"{Colors.MAGENTA}{:<14}| {:<24}| {:<15}| {:<15}{Colors.END}".format(*row))
-
-    # Close the cursor and connection
-    cursor.close()
-    cursor.close()
-
-# Example usage
 if __name__ == "__main__":
     verify_permissions_usr_db_granted()
