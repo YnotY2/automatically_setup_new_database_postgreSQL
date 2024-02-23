@@ -12,5 +12,5 @@ postgresql_db_new_name = os.getenv("postgresql_db_new_name", "project_google_rev
 
 # Other usefull cmds for manually login db
 # psql -U <postgreSQL_db_new_usr> -d <postgresql_db_new_name>
-# dropdb -U postgres project_google_reviews
-# dropuser -U postgres project_google_reviews_usr
+# dropdb -U <user> <db_name>
+# dropuser -U <user> <db_name>

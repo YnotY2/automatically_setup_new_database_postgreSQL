@@ -48,3 +48,6 @@ After that we can finaly proceed to creation the database schema !!!
 
 WELP NEVERMIND, SIMPLY RUN THE CODE AS SUPER USER!! AKA ROOT.
 (still give privledges to sh and python3 files just in case lol)
+
+
+I have created a "grant_permissions.py" file in same dir as main, which calls "grant_neccessary_permissions_sh_python3_files.py" which calls then  "grant_neccessary_permissions_sh_python3_files.sh"
