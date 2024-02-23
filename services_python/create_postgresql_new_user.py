@@ -2,7 +2,7 @@ import subprocess
 import os
 from utils.logger import setup_logger
 from utils.colors import Colors
-from config.settings import postgreSQL_db_new_usr, postgresql_db_new_passwd
+from config.settings import postgreSQL_db_new_usr, postgresql_db_new_passwd, existing_postgresql_admin_usr_passwd, existing_postgresql_admin_usr
 
 # Setup logger with service name
 service_name = "create_postgresql_new_user"
@@ -10,10 +10,10 @@ logger = setup_logger(service_name)
 
 def create_new_postgresql_user():
     # Set PGPASSWORD environment variable
-    os.environ['PGPASSWORD'] = "postgres"
+    os.environ['PGPASSWORD'] = existing_postgresql_admin_usr_passwd
 
     # Command to create user with password
-    create_user_command = f"sudo -u postgres psql -c \"CREATE USER {postgreSQL_db_new_usr} WITH PASSWORD '{postgresql_db_new_passwd}';\""
+    create_user_command = f"sudo -u {existing_postgresql_admin_usr} psql -c \"CREATE USER {postgreSQL_db_new_usr} WITH PASSWORD '{postgresql_db_new_passwd}';\""
 
     # Log statement to terminal and "app.log"
     logger.info(f"{Colors.BLUE}Attempting to create a new database user with corresponding password:{Colors.END}")

@@ -2,7 +2,7 @@ import subprocess
 import os
 from utils.logger import setup_logger
 from utils.colors import Colors
-from config.settings import postgresql_db_new_name
+from config.settings import postgresql_db_new_name, existing_postgresql_admin_usr, existing_postgresql_admin_usr_passwd, postgresql_db_new_passwd, postgreSQL_db_new_usr
 
 
 # Setup logger with service name
@@ -15,14 +15,14 @@ def create_schema_new_database():
         init_db_script = "./config/init-db.psql"
 
         # Command to execute the init-db.psql script
-        command = f"psql -U postgres -d {postgresql_db_new_name} -a -f {init_db_script}"
+        command = f"psql -U {existing_postgresql_admin_usr} -d {postgresql_db_new_name} -a -f {init_db_script}"
 
         logger.info(f"{Colors.BLUE}Attempting to create specified schema for database:{Colors.END}")
         logger.info(f"{Colors.CYAN}Database:            {Colors.MAGENTA}{postgresql_db_new_name}{Colors.END}")
         print("")
 
         # Set PGPASSWORD environment variable
-        os.environ['PGPASSWORD'] = "postgres"
+        os.environ['PGPASSWORD'] = existing_postgresql_admin_usr_passwd
 
         # Execute the command
         try:
@@ -45,7 +45,7 @@ def create_schema_new_database():
         del os.environ['PGPASSWORD']
 
         # Set PGPASSWORD environment variable
-        os.environ['PGPASSWORD'] = "Oo51knSSV3OSwfuy8WFu"
+        os.environ['PGPASSWORD'] = postgresql_db_new_passwd
 
 
         # Verify schema creation
@@ -56,7 +56,7 @@ def create_schema_new_database():
 
         for schema_name in ["horca_parameters_client", "google_account_info", "standard_strings_review",
                             "created_horeca_reviews"]:
-            verify_command = f"psql -U project_google_reviews_usr -d {postgresql_db_new_name} -c '\\dn {schema_name}'"
+            verify_command = f"psql -U {postgreSQL_db_new_usr} -d {postgresql_db_new_name} -c '\\dn {schema_name}'"
             verify_result = subprocess.run(verify_command, shell=True, check=True, capture_output=True, text=True, env=os.environ)
 
             # Check if the schema name is present in the output

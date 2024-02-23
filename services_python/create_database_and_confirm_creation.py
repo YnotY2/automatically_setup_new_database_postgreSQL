@@ -1,5 +1,5 @@
 import psycopg2
-from config.settings import postgresql_db_new_name
+from config.settings import postgresql_db_new_name, existing_postgresql_admin_usr, existing_postgresql_admin_usr_passwd, existing_postgresql_admin_db, existing_postgresql_admin_db_port
 from utils.logger import setup_logger
 from utils.colors import Colors
 
@@ -10,19 +10,19 @@ logger = setup_logger(service_name)
 def create_database_and_confirm_creation():
 
     connection = psycopg2.connect(
-        database="postgres",
-        user="postgres",
+        database=existing_postgresql_admin_db,
+        user=existing_postgresql_admin_usr,
         host="localhost",
-        password="postgres",
-        port="5432")
+        password=existing_postgresql_admin_usr_passwd,
+        port=existing_postgresql_admin_db_port)
 
 
     logger.info(f"{Colors.CYAN}Attempting to connect to the following database:{Colors.END}")
-    logger.info(f"{Colors.BLUE}database:{Colors.END}{Colors.MAGENTA}        'postgres'       {Colors.END}")
-    logger.info(f"{Colors.BLUE}user:{Colors.END}{Colors.MAGENTA}            'postgres'         {Colors.END}")
-    logger.info(f"{Colors.BLUE}password:{Colors.END}{Colors.MAGENTA}        'postgres'         {Colors.END}")
+    logger.info(f"{Colors.BLUE}database:{Colors.END}{Colors.MAGENTA}        '{existing_postgresql_admin_db}'       {Colors.END}")
+    logger.info(f"{Colors.BLUE}user:{Colors.END}{Colors.MAGENTA}            '{existing_postgresql_admin_usr}'         {Colors.END}")
+    logger.info(f"{Colors.BLUE}password:{Colors.END}{Colors.MAGENTA}        '{existing_postgresql_admin_usr_passwd}'         {Colors.END}")
     logger.info(f"{Colors.BLUE}host:{Colors.END}{Colors.MAGENTA}            'localhost'         {Colors.END}")
-    logger.info(f"{Colors.BLUE}port:{Colors.END}{Colors.MAGENTA}            '5432'        {Colors.END}")
+    logger.info(f"{Colors.BLUE}port:{Colors.END}{Colors.MAGENTA}            '{existing_postgresql_admin_db_port}'        {Colors.END}")
     print("")
 
     try:

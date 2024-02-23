@@ -1,4 +1,4 @@
-from config.settings import postgresql_db_new_name, postgreSQL_db_new_usr
+from config.settings import postgresql_db_new_name, postgreSQL_db_new_usr, existing_postgresql_admin_usr
 from utils.logger import setup_logger
 from utils.colors import Colors
 
@@ -30,7 +30,7 @@ def edit_pg_hba_postgresql_config_file():
     print("")
 
     # Define the pattern to match, within the "pg_hba.conf"-file.
-    pattern_words = ["local", "all", "postgres", "md5"]
+    pattern_words = ["local", "all", f"{existing_postgresql_admin_usr}", "md5"]
 
     try:
         # Read the content of pg_hba.conf
