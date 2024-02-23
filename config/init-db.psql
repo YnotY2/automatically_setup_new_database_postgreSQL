@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS google_account_info.account_data (
 CREATE SCHEMA IF NOT EXISTS standard_strings_review;
 
 -- Create the standard_strings_review.standard_string table
-CREATE TABLE IF NOT EXISTS standard_strings_review.standard_string (
+CREATE TABLE IF NOT EXISTS standard_strings_review.standard_string_data (
     string_id SERIAL PRIMARY KEY,
     string_data JSONB NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

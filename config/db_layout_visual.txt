@@ -15,7 +15,7 @@
 # │       └── created_at (TIMESTAMP)
 # │
 # ├── standard_strings_review
-# │   └── standard_string
+# │   └── standard_string_data
 # │       ├── string_id (SERIAL)
 # │       ├── string_data (JSONB)
 # │       └── created_at (TIMESTAMP)

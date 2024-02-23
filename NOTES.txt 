@@ -26,9 +26,10 @@ Okay I have successfully added the line to the authentication file!
 Next we will create the database schema it's self for the created database :)
 and confirm creation of the schema.
 
+DONE!!!
+--------------------------------------------------
 
-
-
+Now we will verify the creation of the tables
 
 Next we will verify the creation of new user and also creation of permissions of user to the corresponding
 new database and schema  ;D

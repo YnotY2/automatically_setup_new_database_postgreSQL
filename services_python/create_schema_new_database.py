@@ -43,6 +43,7 @@ def create_schema_new_database():
 
         # Unset PGPASSWORD environment variable
         del os.environ['PGPASSWORD']
+
         # Set PGPASSWORD environment variable
         os.environ['PGPASSWORD'] = "Oo51knSSV3OSwfuy8WFu"
 
@@ -70,21 +71,9 @@ def create_schema_new_database():
         # Check if all schemas are created successfully
         if all_schemas_created:
             logger.info(
-                f"{Colors.GREEN}All schemas created successfully! Logging layout of created schemas...{Colors.END}")
-
-            # Read and log the contents of db_layout_visual.txt
-            try:
-                with open("./config/db_layout_visual.txt", "r") as file:
-                    db_layout_visual_contents = file.read()
-
-                logger.info(f"{Colors.BLUE}Layout of created schemas::{Colors.END}")
-                logger.info(f"{Colors.YELLOW}{db_layout_visual_contents}{Colors.END}")
-
-            except FileNotFoundError:
-                logger.error("db_layout_visual.txt not found.")
-
-            except Exception as e:
-                logger.error(f"An error occurred while reading db_layout_visual.txt: {e}")
+                f"{Colors.GREEN}All schemas created successfully!{Colors.END}")
+        else:
+            logger.error(f"{Colors.RED}Not all schemas created successfully.{Colors.END}")
 
     except subprocess.CalledProcessError as e:
         logger.error(
@@ -96,9 +85,6 @@ def create_schema_new_database():
     # Unset PGPASSWORD environment variable
     del os.environ['PGPASSWORD']
     print("")
-
-
-
 
 if __name__ == "__main__":
     create_schema_new_database()
