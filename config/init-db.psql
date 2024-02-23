@@ -1,7 +1,7 @@
--- Create the project_google_horeca_reviews database
+-- Create the project_google_reviews database
 CREATE DATABASE project_google_reviews;
 
--- Connect to the project_google_horeca_reviews database
+-- Connect to the project_google_reviews database
 \c project_google_reviews;
 
 -- Create the horca_parameters_client schema

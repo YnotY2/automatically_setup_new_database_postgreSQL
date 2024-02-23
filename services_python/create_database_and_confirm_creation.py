@@ -32,6 +32,7 @@ def create_database_and_confirm_creation():
 
     except Exception as e:
         logger.info(f"{Colors.RED}Error: {e}.{Colors.END}")
+        return False
 
     logger.info(f"{Colors.CYAN}Attempting to create database:{Colors.END}")
     logger.info( f"{Colors.GREEN}Database:{Colors.END}{Colors.MAGENTA}      '{postgresql_db_new_name}'{Colors.END}")
@@ -42,6 +43,8 @@ def create_database_and_confirm_creation():
 
     except Exception as e:
         logger.error(f"{Colors.RED}An error occurred: {e}{Colors.END}")
+        return False
+
 
     finally:
         # Revert autocommit to default
@@ -59,11 +62,16 @@ def create_database_and_confirm_creation():
 
         if result:
             logger.info(f"{Colors.GREEN}Database:{Colors.MAGENTA}     '{postgresql_db_new_name}'{Colors.END} {Colors.GREEN} created successfully.{Colors.END}")
+            return True
         else:
             logger.info(f"{Colors.GREEN} '{postgresql_db_new_name}' creation failed.{Colors.END}")
+            return False
+
 
     except Exception as e:
         logger.error(f"{Colors.RED}An error occurred: {e}{Colors.END}")
+        return False
+
 
     finally:
         cursor.close()

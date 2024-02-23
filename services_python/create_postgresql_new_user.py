@@ -25,9 +25,11 @@ def create_new_postgresql_user():
     try:
         subprocess.run(create_user_command, shell=True, check=True, env=os.environ)
         logger.info(f"{Colors.GREEN}User{Colors.END}{Colors.MAGENTA}  {postgreSQL_db_new_usr}{Colors.END}{Colors.GREEN} created successfully.{Colors.END}")
+        created_successfully = True
 
     except subprocess.CalledProcessError as e:
         logger.error(f"{Colors.RED}Error occurred: {e}{Colors.END}")
+        return False
 
 
     # Confirm creation of user by attempting to login (this should fail)
@@ -42,6 +44,7 @@ def create_new_postgresql_user():
 
     except subprocess.CalledProcessError as e:
         logger.error(f"{Colors.RED}Error occurred: {e}{Colors.END}")
+        # This is supposed to happen...
 
     print("")
     logger.info(f"{Colors.GREEN}The error should indicate: 'peer auth failed' because "
@@ -51,6 +54,12 @@ def create_new_postgresql_user():
     # Unset PGPASSWORD environment variable
     del os.environ['PGPASSWORD']
     print("")
+
+    # Return the variable value
+    if created_successfully:
+        return True
+    else:
+        return False
 
 
 if __name__ == "__main__":

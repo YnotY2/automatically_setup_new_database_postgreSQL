@@ -10,11 +10,7 @@ postgresql_db_new_passwd = os.getenv("postgresql_db_new_passwd", "Oo51knSSV3OSwf
 postgresql_db_new_name = os.getenv("postgresql_db_new_name", "project_google_reviews")
 
 
-postgresql_db_name = os.getenv("postgresql_db_name", "<name_here>")
-postgresql_db_passwd = os.getenv("postgresql_db_passwd", "<passwd_here>")
-postgresql_db_usr = os.getenv("postgresql_db_usr", "<user_here>")
-postgresql_port = os.getenv("postgresql_port", "5432")      # Default port// Change if wanted
-postgresql_host = os.getenv("postgresql_host", "localhost")      # Locally hosted db// Change if wanted
-
-# Other credentials
-# psql -U project_google_reviews_usr -d project_google_reviews
+# Other usefull cmds for manually login db
+# psql -U <postgreSQL_db_new_usr> -d <postgresql_db_new_name>
+# dropdb -U postgres project_google_reviews
+# dropuser -U postgres project_google_reviews_usr

@@ -47,7 +47,7 @@ def edit_pg_hba_postgresql_config_file():
 
         if index is None:
             logger.error(f"{Colors.RED}: Pattern not found in pg_hba.conf.{Colors.END}")
-            return
+            return False
 
         # Insert the new line after the line containing the pattern
         lines.insert(index + 1, new_line)
@@ -59,20 +59,25 @@ def edit_pg_hba_postgresql_config_file():
 
             logger.info(f"{Colors.GREEN}Line added successfully to pg_hba.conf.{Colors.END}")
             print("")
+            return True
 
         except Exception as e:
             logger.error(f"{Colors.RED}An error occurred while editing pg_hba.conf: {e}{Colors.END}")
             print("")
+            return False
 
 
 
     except FileNotFoundError:
         logger.error("pg_hba.conf file not found.")
         print("")
+        return False
+
 
     except Exception as e:
         logger.error(f"An error occurred while editing pg_hba.conf: {e}")
         print("")
+        return False
 
 
 if __name__ == "__main__":

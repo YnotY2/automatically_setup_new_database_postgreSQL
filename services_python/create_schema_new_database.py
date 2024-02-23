@@ -34,12 +34,12 @@ def create_schema_new_database():
             print("")
 
             logger.info(f"{Colors.GREEN}Schema for database: {Colors.END}{Colors.MAGENTA}{postgresql_db_new_name}{Colors.END}{Colors.GREEN} created successfully.{Colors.END}")
-            print("")
+            schema_created_successfully = True
+
 
         except Exception as e:
             logger.error(f"{Colors.RED}Error: Creating schema db; {e}{Colors.END}")
-
-
+            schema_created_successfully = False
 
         # Unset PGPASSWORD environment variable
         del os.environ['PGPASSWORD']
@@ -70,21 +70,33 @@ def create_schema_new_database():
         print("")
         # Check if all schemas are created successfully
         if all_schemas_created:
-            logger.info(
-                f"{Colors.GREEN}All schemas created successfully!{Colors.END}")
+            logger.info(f"{Colors.GREEN}All schemas created successfully!{Colors.END}")
+            print("")
+
         else:
             logger.error(f"{Colors.RED}Not all schemas created successfully.{Colors.END}")
+            return False
 
     except subprocess.CalledProcessError as e:
-        logger.error(
-            f"{Colors.RED}Error occurred while creating schema for database {postgresql_db_new_name}: {e.stderr}{Colors.END}")
+        logger.error(f"{Colors.RED}Error occurred while creating schema for database {postgresql_db_new_name}: {e.stderr}{Colors.END}")
+        return False
+
 
     except Exception as e:
         logger.error(f"{Colors.RED}An error occurred: {e}{Colors.END}")
+        return False
 
     # Unset PGPASSWORD environment variable
     del os.environ['PGPASSWORD']
     print("")
+
+    # Confirm, and return True
+    if schema_created_successfully:
+        return True
+    else:
+        logger.error(f"{Colors.RED}Not all schemas created successfully.{Colors.END}")
+        return False
+
 
 if __name__ == "__main__":
     create_schema_new_database()

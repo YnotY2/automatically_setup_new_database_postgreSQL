@@ -71,18 +71,26 @@ def verify_permissions_usr_db_granted():
                     "TRIGGER": "Allow to create triggers on a table."
                 }.get(privilege, "")
                 logger.info(f"{Colors.CYAN}{privilege:<10}{Colors.MAGENTA}\t{explanation}{Colors.END}")
+                print("")
+                expected_privileges_verified = True
         else:
             logger.error(f"{Colors.RED}Missing privileges: {', '.join(missing_privileges)}{Colors.END}")
+            return False
 
         # Close the cursor and connection
         cursor.close()
         connection.close()
 
-    except Exception as e:
-        logger.error(f"{Colors.RED}Error: {e}.{Colors.END}")
+        if expected_privileges_verified:
+            return True
 
     except Exception as e:
         logger.error(f"{Colors.RED}Error: {e}.{Colors.END}")
+        return False
+
+    except Exception as e:
+        logger.error(f"{Colors.RED}Error: {e}.{Colors.END}")
+        return False
 
 if __name__ == "__main__":
     verify_permissions_usr_db_granted()
