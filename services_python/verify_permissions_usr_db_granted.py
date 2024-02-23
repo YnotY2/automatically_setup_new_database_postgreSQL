@@ -24,7 +24,6 @@ def verify_permissions_usr_db_granted():
         logger.info(f"{Colors.BLUE}password:{Colors.END}{Colors.MAGENTA}        '{postgresql_db_new_passwd}'         {Colors.END}")
         logger.info(f"{Colors.BLUE}host:{Colors.END}{Colors.MAGENTA}            'localhost'         {Colors.END}")
         logger.info(f"{Colors.BLUE}port:{Colors.END}{Colors.MAGENTA}            '5432'        {Colors.END}")
-        print("")
 
         # Create a cursor object
         cursor = connection.cursor()
@@ -54,17 +53,33 @@ def verify_permissions_usr_db_granted():
         logger.info(f"{Colors.BLUE}Attempting to check if all expected/needed privileges are granted to:{Colors.END}")
         logger.info(f"{Colors.CYAN}User:                {Colors.MAGENTA}{postgreSQL_db_new_usr}{Colors.END}")
         logger.info(f"{Colors.CYAN}On Database:         {Colors.MAGENTA}{postgresql_db_new_name}{Colors.END}")
+        print("")
 
         # Print the result
         if not missing_privileges:
             logger.info(f"{Colors.GREEN}All expected privileges are present in the response.{Colors.END}")
-            logger.info(f"{Colors.CYAN}{expected_privileges}{Colors.END}")
+            logger.info(f"{Colors.BLUE}Permissions:{Colors.END}")
+
+            for privilege in sorted(expected_privileges):
+                explanation = {
+                    "INSERT": "Allow to add new rows to a table.",
+                    "SELECT": "Allow to retrieve data from a table.",
+                    "UPDATE": "Allow to modify existing rows in a table.",
+                    "DELETE": "Allow to remove rows from a table.",
+                    "TRUNCATE": "Allow to remove all rows from a table.",
+                    "REFERENCES": "Allow to create a foreign key constraint.",
+                    "TRIGGER": "Allow to create triggers on a table."
+                }.get(privilege, "")
+                logger.info(f"{Colors.CYAN}{privilege:<10}{Colors.MAGENTA}\t{explanation}{Colors.END}")
         else:
             logger.error(f"{Colors.RED}Missing privileges: {', '.join(missing_privileges)}{Colors.END}")
 
         # Close the cursor and connection
         cursor.close()
         connection.close()
+
+    except Exception as e:
+        logger.error(f"{Colors.RED}Error: {e}.{Colors.END}")
 
     except Exception as e:
         logger.error(f"{Colors.RED}Error: {e}.{Colors.END}")
