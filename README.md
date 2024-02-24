@@ -2,7 +2,8 @@
 
 ## Overview
 
-This tools allows you to automatically set-up a new PostgreSQl database with corresponding user, specified-schema and correct permissions *0-0*
+This tools allows you to automatically set-up a new PostgreSQl database with corresponding user, specified-schema and correct permissions *0-0* This tool currently only
+works on Kali-Linux and other Debian based OS. 
 
 ## Prerequisites
 
