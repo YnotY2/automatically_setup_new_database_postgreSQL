@@ -1,54 +1,30 @@
--- Create the project_google_reviews database
-CREATE DATABASE project_google_reviews;
+-- Create the database if it does not exist
+CREATE DATABASE IF NOT EXISTS web_scraping_data;
 
--- Connect to the project_google_reviews database
-\c project_google_reviews;
+-- Connect to the web_scraping_data database
+\c web_scraping_data;
 
--- Create the horca_parameters_client schema
-CREATE SCHEMA IF NOT EXISTS horca_parameters_client;
+-- Create the web_scraping_urls schema
+CREATE SCHEMA IF NOT EXISTS web_scraping_urls;
 
--- Create the horca_parameters_client.client_data table
-CREATE TABLE IF NOT EXISTS horca_parameters_client.client_data (
-    client_id SERIAL PRIMARY KEY,
-    client_name TEXT NOT NULL,
-    client_data JSONB NOT NULL,
+-- Create the successfully_scraped_urls schema
+CREATE SCHEMA IF NOT EXISTS successfully_scraped_urls;
+
+-- Create the web_scraping_urls.urls_to_scrape table
+CREATE TABLE IF NOT EXISTS web_scraping_urls.urls_to_scrape (
+    url_id SERIAL PRIMARY KEY,
+    url TEXT,
+    status TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create the google_account_info schema
-CREATE SCHEMA IF NOT EXISTS google_account_info;
-
--- Create the google_account_info.account_data table
-CREATE TABLE IF NOT EXISTS google_account_info.account_data (
-    account_id SERIAL PRIMARY KEY,
-    account_data JSONB NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- Create the successfully_scraped_urls.scraped_urls table
+CREATE TABLE IF NOT EXISTS successfully_scraped_urls.scraped_urls (
+    url_id SERIAL PRIMARY KEY,
+    url TEXT,
+    data JSONB,
+    scraped_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create the standard_strings_review schema
-CREATE SCHEMA IF NOT EXISTS standard_strings_review;
-
--- Create the standard_strings_review.standard_string table
-CREATE TABLE IF NOT EXISTS standard_strings_review.standard_string_data (
-    string_id SERIAL PRIMARY KEY,
-    string_data JSONB NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Create the created_horeca_reviews schema
-CREATE SCHEMA IF NOT EXISTS created_horeca_reviews;
-
--- Create the created_horeca_reviews.reviews_data table
-CREATE TABLE IF NOT EXISTS created_horeca_reviews.reviews_data (
-    review_id SERIAL PRIMARY KEY,
-    client_name TEXT NOT NULL,
-    review_data JSONB NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    review_count INTEGER
-);
-
-
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA horca_parameters_client TO project_google_reviews_usr;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA google_account_info TO project_google_reviews_usr;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA standard_strings_review TO project_google_reviews_usr;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA created_horeca_reviews TO project_google_reviews_usr;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA web_scraping_urls TO <user_name_postgresql>;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA successfully_scraped_urls TO <user_name_postgresql>;
