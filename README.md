@@ -3,15 +3,19 @@
 ## Overview
 
 This tools allows you to automatically set-up a new PostgreSQl database with corresponding user, specified-schema and correct permissions *0-0*
+It is important to run the code "main.py" with sudo privledges, this is needed because we are adding a entry to the "pg_hba.conf" postgresql auth-file.
 
 ## Prerequisites
 
 Before using this tool, ensure you have the following prerequisites:
 
-### Files:
+### Installed and set-up:
 
 - Python 3.x
 - PostgreSQL installed and set-up with a admin postgresql user. (e,g; "postgres")
+
+### Files:
+
 - "init-db.psql" -file set-up within the ./config/<file_here> directory                 //make sure file name matches, currently a example file is present within the dir.
 - "db_layout_visual.txt" -file set-up within the ./config/<file_here> direcory          //make sure file name matches, currently a example file is present within the dir.
 
@@ -29,6 +33,34 @@ After setting up the needed file's you can navigate over the the; "./config/sett
   - Existing postgresql admin port (corresponing to admin database-name) 
 
   + Most systems have a default "postgresql" admin user and "postgresql" admin database, on default port "5432"
+
+Settings.py file visualised; 
+```python
+import os
+
+## Database PostgreSQL Credentials
+
+# Creating the new user on database-postgreSQL
+postgreSQL_db_new_usr = os.getenv("postgreSQL_db_new_usr", "<postgreSQL_db_new_usr_here>")        # e.g; "clothing_sales_usr"
+postgresql_db_new_passwd = os.getenv("postgresql_db_new_passwd", "<postgresql_db_new_passwd_here>")        # e.g; "super_secure_password"
+
+# Creating the new database on PostgreSQL
+postgresql_db_new_name = os.getenv("postgresql_db_new_name", "<postgresql_db_new_name_here>")          # e.g; "clothing_sales"
+
+# Credentials used for admin command on PostgreSQL aka "psql" terminal
+existing_postgresql_admin_usr = os.getenv("existing_postgresql_admin_usr", "postgres")                      # e.g; "postgres", default admin-usr.
+existing_postgresql_admin_usr_passwd = os.getenv("existing_postgresql_admin_usr_passwd", "postgres")        # e.g; "postgres", default admin-usr postgres password.
+existing_postgresql_admin_db = os.getenv("existing_postgresql_admin_db", "postgres")                        # e.g; "postgres", default postgres admin password.
+existing_postgresql_admin_db_port = os.getenv("existing_postgresql_admin_db_port", "5432")                  # e.g; "5432", default port.
+
+
+## Other usefull cmds for manually login db //dont have any effect on code, no variables.
+# psql -U <postgreSQL_db_new_usr> -d <postgresql_db_new_name>
+
+## Drop user and database;
+# dropdb -U <user> <db_name>
+# dropuser -U <user> <db_name>
+```
 
 
 To install the necessary dependencies, you can use pip:
