@@ -67,12 +67,15 @@ existing_postgresql_admin_db_port = os.getenv("existing_postgresql_admin_db_port
 ### Finalise Set-Up:
 
 1, Navigate to the following directory;  "path/to/dir/automatically_setup_new_datbase_postgreSQL" 
+
 - Following files will be present within this directory:
+  
   ```bash
   app.log  config  grant_permissions.py  main.py  requirements.txt  services_python  services_sh  utils  venv
   ```
 
 2, Run the "grant_permissions.py" file located within the the directory to grant the nessecary permissions to our "services_python" and "services_sh" scripts.
+
   ```bash
   sudo python3 grant_permissions.py
   ```
