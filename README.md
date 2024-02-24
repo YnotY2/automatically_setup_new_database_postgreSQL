@@ -8,10 +8,14 @@ This tools allows you to automatically set-up a new PostgreSQl database with cor
 
 Before using this tool, ensure you have the following prerequisites:
 
+### Files:
+
 - Python 3.x
 - PostgreSQL installed and set-up with a admin postgresql user. (e,g; "postgres")
 - "init-db.psql" -file set-up within the ./config/<file_here> directory                 //make sure file name matches, currently a example file is present within the dir.
 - "db_layout_visual.txt" -file set-up within the ./config/<file_here> direcory          //make sure file name matches, currently a example file is present within the dir.
+
+### Settings: 
 
 After setting up the needed file's you can navigate over the the; "./config/settings.py" direcory. This "settings.py" file is where you *need* specifiy the following; 
 
@@ -23,6 +27,7 @@ After setting up the needed file's you can navigate over the the; "./config/sett
   - Existing postgresql admin password for you're user
   - Existing postgresql admin database (name)
   - Existing postgresql admin port (corresponing to admin database-name) 
+
   + Most systems have a default "postgresql" admin user and "postgresql" admin database, on default port "5432"
 
 
