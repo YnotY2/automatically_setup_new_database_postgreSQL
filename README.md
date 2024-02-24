@@ -10,8 +10,20 @@ Before using this tool, ensure you have the following prerequisites:
 
 - Python 3.x
 - PostgreSQL installed and set-up with a admin postgresql user. (e,g; "postgres")
-- "init-db.psql" -file set-up within the .config/<file_here> directory
-- 
+- "init-db.psql" -file set-up within the ./config/<file_here> directory                 //make sure file name matches, currently a example file is present within the dir.
+- "db_layout_visual.txt" -file set-up within the ./config/<file_here> direcory          //make sure file name matches, currently a example file is present within the dir.
+
+After setting up the needed file's you can navigate over the the; "./config/settings.py" direcory. This "settings.py" file is where you can specifiy the following; 
+- New PostgreSQl user for you're datbase
+- New PostgreSQL password for you're user 
+- New PostgreSQL database (name)
+
+  - Existing postgresql admin user
+  - Existing postgresql admin password for you're user
+  - Existing postgresql admin database (name)
+  - Existing postgresql admin port (corresponing to admin database-name) 
+  + Most systems have a default "postgresql" admin user and "postgresql" admin database, on default port "5432"
+
 
 To install the necessary dependencies, you can use pip:
 
