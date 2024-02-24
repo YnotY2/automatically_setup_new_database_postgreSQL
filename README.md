@@ -36,7 +36,7 @@ After setting up the needed file's you can navigate over the the; "./config/sett
 
   + Most systems have a default "postgresql" admin user and "postgresql" admin database, on default port "5432"
 
-Settings.py file visualised; 
+"settings.py" file visualised; 
 ```python
 import os
 
