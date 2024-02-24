@@ -3,7 +3,6 @@
 ## Overview
 
 This tools allows you to automatically set-up a new PostgreSQl database with corresponding user, specified-schema and correct permissions *0-0*
-It is important to run the code "main.py" with sudo privledges, this is needed because we are adding a entry to the "pg_hba.conf" postgresql auth-file.
 
 ## Prerequisites
 
@@ -13,6 +12,9 @@ Before using this tool, ensure you have the following prerequisites:
 
 - Python 3.x
 - PostgreSQL installed and set-up with a admin postgresql user. (e,g; "postgres")
+
+## Usage
+After you have successfully cloned the project into you're wanted directory on local machine you must set-up the following for the code/program to function correctly.
 
 ### Files:
 
@@ -62,65 +64,37 @@ existing_postgresql_admin_db_port = os.getenv("existing_postgresql_admin_db_port
 # dropuser -U <user> <db_name>
 ```
 
+### Finalise Set-Up:
 
-To install the necessary dependencies, you can use pip:
+1, Navigate to the following directory;  "path/to/dir/automatically_setup_new_datbase_postgreSQL" 
+- Following files will be present within this directory:
+  ```bash
+  app.log  config  grant_permissions.py  main.py  requirements.txt  services_python  services_sh  utils  venv
+  ```
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+2, Run the "grant_permissions.py" file located within the the directory to grant the nessecary permissions to our "services_python" and "services_sh" scripts.
+  ```bash
+  sudo python3 grant_permissions.py
+  ```
 
-## Usage
-
-To use the **LamdaTest_Env_Check.py**, follow these steps:
-1. **Upload your Application To LamdaTest-Platform**
-
-   Documentation; https://www.lambdatest.com/support/docs/appium-java/
-
-   Using App from local system:
-   ```bash
-   curl -u "LAMDATEST_USERNAME:LADMATEST_ACCESSKEY" -X POST "https://manual-api.lambdatest.com/app/upload/realDevice" -F "appFile=@"/Users/user/path/to/APP_NAME.apk"" -F "name="APP_NAME""
-   ```
-   
-   You will recevie the needed credentials for following variables:
-   `app_id`, `app_url`, `app_name`, `app_type`, 
-   These parameters are used to check *your* LamdaTest Environment 0-0
-   
-
-2. **Install requirements**
-
-   Within your saved LamdaTest_Env_Check.py directory, open terminal and paste command:
+3, Install the necessary dependencies, you can use pip:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Set -credentials**
 
-   You can easily set the credentials within LamdaTest_Env_Check.py:
+## Running code:
+After you have completed full set-up listed above you are ready to utilise the tool! It is important to run the code "main.py" with sudo privledges, this is needed because we are adding a entry to the "pg_hba.conf" postgresql auth-file.
 
-   ```python
-   LAMBDATEST_ACCESS_KEY = "LAMBDATEST_ACCESS_KEY_HERE"
-   LAMBDATEST_USERNAME = "LAMBDATEST_USERNAME_HERE"
-   BASE64_USERNAME_ACCESSKEY = "BASE64_USERNAME_ACCESSKEY_HERE"
-   
-   app_id = "UPLOADED_APP_ID_HERE"
-   app_url = "UPLOADED_APP_URL_HERE"
-   app_name = "UPLOADED_APP_NAME_HERE"
-   app_type = "APP_TYPE_HERE"
+1, Navigate to the directory "path/to/dir/automatically_setup_new_datbase_postgreSQL"
 
-   # Define the .json file available devices output directory:
-   directory_path = "/Users/user/path/to/LamdaTest_Env_Check_results"
-   
-   # Define the "Real Devices" names we want to utilize
-   real_device_name_01 = "Galaxy S23 Ultra"
-   real_device_name_02 = "Galaxy S23 Ultra"
-   real_device_name_03 = "Poco X3 Pro"
-   real_device_name_04 = "Poco M4 Pro"
-   real_device_name_05 = "Pixel 7"
-   real_device_name_06 = "Pixel 7 Pro"
-   ```
+2, 
 
-4. **Run LamdaTest_Env_Check.py**
-   ```bash
-   python3 LamdaTest_Env_Check.py
-   ```
+```bash
+sudo python3 main.py
+```
+
+
+#### YnotY2 
+##### 𝕃𝕚𝕧𝕚𝕟𝕘 𝕚𝕤 𝔸 𝔻𝕪𝕚𝕟𝕘 𝔸𝕣𝕥  0-0
