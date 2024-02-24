@@ -13,7 +13,8 @@ Before using this tool, ensure you have the following prerequisites:
 - "init-db.psql" -file set-up within the ./config/<file_here> directory                 //make sure file name matches, currently a example file is present within the dir.
 - "db_layout_visual.txt" -file set-up within the ./config/<file_here> direcory          //make sure file name matches, currently a example file is present within the dir.
 
-After setting up the needed file's you can navigate over the the; "./config/settings.py" direcory. This "settings.py" file is where you can specifiy the following; 
+After setting up the needed file's you can navigate over the the; "./config/settings.py" direcory. This "settings.py" file is where you *need* specifiy the following; 
+
 - New PostgreSQl user for you're datbase
 - New PostgreSQL password for you're user 
 - New PostgreSQL database (name)
