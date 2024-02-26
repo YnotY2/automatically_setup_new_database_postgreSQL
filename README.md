@@ -67,7 +67,7 @@ existing_postgresql_admin_db_port = os.getenv("existing_postgresql_admin_db_port
 
 ### Finalise Set-Up:
 
-1, Navigate to the following directory;  "path/to/dir/automatically_setup_new_datbase_postgreSQL" 
+1, Navigate to the following directory;  "path/to/dir/automatically_setup_new_database_postgreSQL" 
 
 - Following files will be present within this directory:
   
