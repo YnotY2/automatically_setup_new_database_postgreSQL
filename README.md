@@ -1,4 +1,4 @@
-# LambdaTest Environment Check Tool
+# Automatically set-up new postgreSQL database
 
 ## Overview
 
