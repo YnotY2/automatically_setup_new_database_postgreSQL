@@ -26,7 +26,7 @@ After you have successfully cloned the project into you're wanted directory on l
 
 After setting up the needed file's you can navigate over the the; "./config/settings.py" direcory. This "settings.py" file is where you *need* specifiy the following; 
 
-- New PostgreSQl user for you're datbase
+- New PostgreSQl user for you're database
 - New PostgreSQL password for you're user 
 - New PostgreSQL database (name)
 
@@ -91,7 +91,7 @@ existing_postgresql_admin_db_port = os.getenv("existing_postgresql_admin_db_port
 ## Running code:
 After you have completed full set-up listed above you are ready to utilise the tool! It is important to run the code "main.py" with sudo privledges, this is needed because we are adding a entry to the "pg_hba.conf" postgresql auth-file.
 
-1, Navigate to the directory "path/to/dir/automatically_setup_new_datbase_postgreSQL"
+1, Navigate to the directory "path/to/dir/automatically_setup_new_database_postgreSQL"
 
 2, 
 
